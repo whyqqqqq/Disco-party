@@ -1,0 +1,80 @@
+from sys import exit
+
+# define room ENTRANCE
+
+def monster_room():
+    print """
+    No wonder it was hard to get through this door, you are already
+    wishing that you had left this one alone.
+    A giant monster with a mouth surrounded by eyes immediately slimes
+    you with a green tongue.  You feel the sting of 1,000 jellyfish tentacles
+    paralyzing you and slowing ...your .....thoughts.......  
+    Filled ........with.........fear.........., you.............slowly......
+    ........pee................your.....................pants..........
+    Better.................luck..............next....................time.......
+    """
+    exit(0)
+    
+def entrance_room():
+    print "You climb down a ladder into a dimly lit room."
+    print "There is a door on each side of the room."
+    print "Do you choose to take the door to the left,"
+    print "or the door to the right?"
+    which_door = raw_input("> ")
+    
+    if "left" in which_door:
+        print "The door to the left swings open and you proceed cautiously through."
+        trampoline_room()
+    elif "right" in which_door:
+        print "The door to the right needs a good push and then you are through!"
+        monster_room()
+    else:
+        print "You continue to drool on your shoes....see you next time around!"
+        exit()
+    
+def trampoline_room():
+    print "You have entered a room full of trampolines!"
+    print "Some are round and some are not.  The trampolines are made of all"
+    print "different colors!  How many minutes do you wish to stay and play in this room?"
+    how_long = raw_input("?>" )
+    minutes = int(how_long)
+    
+    if  minutes < 30:
+        print "Your fear of exercise is duley noted.  Try again!"
+        exit(0)
+    elif minutes == 30:
+        print "Congratulations!  You are our 9th caller today!  Proceed directly to the finish line!"
+        exit(0)
+    else:
+        print "Great, you spend time getting your sweat on and finally notice"
+        print "the green door in the corner of the room.  You bounce on over and "
+        print "pop right through it."
+        disco_room()
+             
+def disco_room():
+    print "It's a disco party!"
+    print "This room is pounding with dance hits, lit up with a silvery sphere hung from "
+    print "the ceiling and there are sweaty bodies grooving everywhere.  The only somewhat"
+    print "calm space is a buffet along one wall.  You are starving from your trampoline"
+    print "workout.  Do you take a break and grab a bite or do you immediately join in the"
+    print "fray?"
+    food_break = raw_input("> ")
+    
+    buffet = ["break", "bite", "eat", "buffet", "food"]
+# This only works if the user input is one word and that one word is in the list.
+# How do I write it so that: if ANY of these words are included in a mult-word response, then...
+    
+    if food_break in buffet:
+        print "Good idea, don't want to overexert yourself.  You head over to the buffet"
+        print "line and dive in.  You eat too much and end up falling asleep."
+        print "***Try again from the start!***\n"
+        entrance_room()
+    else:
+        print "You are still on a jumper's high - food can wait!"  
+        print "As you enter the dance floor, the other dancers surround and then lift"
+        print "you up.  An opening appears in the Disco ball and you are swallowed up"
+        print "by it.  Once inside, a genie explains that you have won the game and can"
+        print "go home now.  Nice job :)"
+    exit(0)
+    
+entrance_room()
